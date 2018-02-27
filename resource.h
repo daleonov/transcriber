@@ -58,12 +58,12 @@ instrument determined by PLUG _IS _INST
 #define BACKGROUND_ID 102
 
 // Image resource locations for this plug.
-#define KNOB_FN "resources/img/knob.png"
-#define BACKGROUND_FN "resources/img/background.png"
+#define KNOB_FN "resources/img/FlatGreyYellowKnob.png"
+#define BACKGROUND_FN "resources/img/TranscriberBG.png"
 
 // GUI default dimensions
-#define GUI_WIDTH 280
-#define GUI_HEIGHT 230
+#define GUI_WIDTH 700
+#define GUI_HEIGHT 430
 
 // on MSVC, you must define SA_API in the resource editor preprocessor macros as well as the c++ ones
 #if defined(SA_API)

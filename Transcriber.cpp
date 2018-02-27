@@ -17,8 +17,8 @@ enum ELayout
   kWidth = GUI_WIDTH,
   kHeight = GUI_HEIGHT,
 
-  kCutOffFrequencyX = 79,
-  kCutOffFrequencyY = 62,
+  kCutOffFrequencyX = 239,
+  kCutOffFrequencyY = 150,
   kKnobFrames = 128
 };
 
