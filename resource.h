@@ -56,10 +56,12 @@ instrument determined by PLUG _IS _INST
 // Unique IDs for each image resource.
 #define KNOB_ID 101
 #define BACKGROUND_ID 102
+#define SWITCH_ID 103
 
 // Image resource locations for this plug.
 #define KNOB_FN "resources/img/FlatGreyYellowKnob.png"
 #define BACKGROUND_FN "resources/img/TranscriberBG.png"
+#define SWITCH_FN "resources/img/Switch.png"
 
 // GUI default dimensions
 #define GUI_WIDTH 700

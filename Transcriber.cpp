@@ -4,42 +4,27 @@
 #include "resource.h"
 #include "lib_filter/filter.h"
 
-const int kNumPrograms = 5;
-
-enum EParams
-{
-  kCutOffFrequency = 0,
-  kNumParams
-};
-
-enum ELayout
-{
-  kWidth = GUI_WIDTH,
-  kHeight = GUI_HEIGHT,
-
-  kCutOffFrequencyX = 239,
-  kCutOffFrequencyY = 150,
-  kKnobFrames = 128
-};
-
 Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   :	IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mCutOffFrequency(1.)
 {
   TRACE;
 
   //arguments are: name, defaultVal, minVal, maxVal, step, label
-  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.001);
-  GetParam(kCutOffFrequency)->SetShape(2);
+  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.001, "CutOffFrequency");
+  GetParam(kCutOffFrequency)->SetShape(1);
+  GetParam(kGain)->InitDouble("Gain", 1., 0., 2., 0.1, "Gain");
+  GetParam(kGain)->SetShape(1);
+  GetParam(kSwitch)->InitBool("OnOff", 1, "OnOff");
 
   IGraphics* pGraphics = MakeGraphics(this, kWidth, kHeight);
-  //pGraphics->AttachPanelBackground(&COLOR_RED);
   pGraphics->AttachBackground(BACKGROUND_ID, BACKGROUND_FN);
-
-  IBitmap knob = pGraphics->LoadIBitmap(KNOB_ID, KNOB_FN, kKnobFrames);
-
-  pGraphics->AttachControl(new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &knob));
-
+  IBitmap tGuiBmp = pGraphics->LoadIBitmap(KNOB_ID, KNOB_FN, kKnobFrames);
+  pGraphics->AttachControl(new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &tGuiBmp));
+  pGraphics->AttachControl(new IKnobMultiControl(this, kGainX, kGainY, kGain, &tGuiBmp));
+  tGuiBmp = pGraphics->LoadIBitmap(SWITCH_ID, SWITCH_FN, kSwitchFrames);
+  pGraphics->AttachControl(new ISwitchControl(this, kSwitchX, kSwitchY, kSwitchFrames, &tGuiBmp));
   AttachGraphics(pGraphics);
+
 
   //MakePreset("preset 1", ... );
   //MakeDefaultPreset((char *) "-", kNumPrograms);
