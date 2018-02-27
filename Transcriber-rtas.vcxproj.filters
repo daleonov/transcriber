@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Transcriber Include="Libs">
+      <UniqueIdentifier>{73d47a52-ce2f-4264-9bb9-f0b3c16f889d}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="IPlug">
+      <UniqueIdentifier>{f61218de-bb49-4fd2-b3b8-d4d3a4f905de}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="IPlug\RTAS">
+      <UniqueIdentifier>{f55aca3b-4b35-490a-99d6-51d6724f0396}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="IPlug\RTAS\include">
+      <UniqueIdentifier>{13073ee3-c4e8-497c-b935-b091b14197c2}</UniqueIdentifier>
+    </Transcriber>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\DAE.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\DigiExt.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\DSI.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\PlugInLib.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\DSPManager.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\DSPManagerClientLib.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+    <Library Include="..\..\PT9_SDK\WinBag\Release\lib\RTASClientLib.lib">
+      <Transcriber>Libs</Transcriber>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\WDL\IPlug\Containers.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\Hosts.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IBitmapMonoText.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IControl.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IGraphics.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IGraphicsWin.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IKeyboardControl.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IMidiQueue.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IParam.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlug_include_in_plug_hdr.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlug_include_in_plug_src.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlugBase.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlugOSDetect.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlugRTAS.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlugStructs.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPopupMenu.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\Log.h">
+      <Transcriber>IPlug</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\EditorInterface.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugCustomUI.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugDigiView.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugGroup.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugProcess.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugProcessRTAS.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\ProcessInterface.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\digicode.h">
+      <Transcriber>IPlug\RTAS\include</Transcriber>
+    </ClInclude>
+    <ClInclude Include="Transcriber.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugProcessAS.h">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\WDL\IPlug\Hosts.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IBitmapMonoText.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IControl.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IGraphics.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IGraphicsWin.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IParam.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IPlugBase.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IPlugRTAS.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IPlugStructs.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IPopupMenu.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\Log.cpp">
+      <Transcriber>IPlug</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\IPlugCustomUI.cpp">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\IPlugGroup.cpp">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\IPlugProcess.cpp">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\IPlugProcessRTAS.cpp">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\digicode1.cpp">
+      <Transcriber>IPlug\RTAS\include</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\digicode2.cpp">
+      <Transcriber>IPlug\RTAS\include</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\digicode3.cpp">
+      <Transcriber>IPlug\RTAS\include</Transcriber>
+    </ClCompile>
+    <ClCompile Include="Transcriber.cpp" />
+    <ClCompile Include="..\..\WDL\IPlug\RTAS\IPlugProcessAS.cpp">
+      <Transcriber>IPlug\RTAS</Transcriber>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Transcriber-rtas.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Transcriber.rc" />
+  </ItemGroup>
+</Project>

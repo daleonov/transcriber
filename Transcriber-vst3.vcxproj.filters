@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Transcriber.cpp" />
+    <ClCompile Include="..\..\VST3_SDK\pluginterfaces\base\funknown.cpp">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\pluginterfaces\base\ustring.cpp">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\common\pluginview.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\common</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstaudioeffect.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstbus.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstcomponent.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstcomponentbase.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstinitiids.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstparameters.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\main\dllmain.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\main</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\main\pluginfactoryvst3.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\main</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\VST3_SDK\public.sdk\source\vst\vstsinglecomponenteffect.cpp">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\IPlug\IPlugVST3.cpp">
+      <Transcriber>vst3</Transcriber>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Transcriber.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\falignpop.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\falignpush.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\fplatform.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\ftypes.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\funknown.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\ipluginbase.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\keycodes.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\base\ustring.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\base</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstattributes.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstaudioprocessor.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstcomponent.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivsteditcontroller.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstevents.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivsthostapplication.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstmessage.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstmidicontrollers.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstparameterchanges.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstprocesscontext.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\ivstunits.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\vstpresetkeys.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\vst\vsttypes.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\pluginterfaces\gui\iplugview.h">
+      <Transcriber>vst3\VST3SDK\pluginterfaces\gui</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\common\pluginview.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\common</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstaudioeffect.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstbus.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstcomponent.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstcomponentbase.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vsteditcontroller.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstparameters.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\main\pluginfactoryvst3.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\main</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstsinglecomponenteffect.h">
+      <Transcriber>vst3\VST3SDK\public.sdk\vst</Transcriber>
+    </ClInclude>
+    <ClInclude Include="..\..\WDL\IPlug\IPlugVST3.h">
+      <Transcriber>vst3</Transcriber>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Transcriber Include="vst3">
+      <UniqueIdentifier>{0028f8fa-40ce-4098-b1d7-1930d1a7774b}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK">
+      <UniqueIdentifier>{d33dc1fa-0b31-40b9-a240-b065db740979}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\pluginterfaces">
+      <UniqueIdentifier>{1da1c979-a505-4558-b877-1a2da0e4e758}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\pluginterfaces\base">
+      <UniqueIdentifier>{cf0c95d2-7b5a-4afa-8a3e-546800d9b337}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\pluginterfaces\vst">
+      <UniqueIdentifier>{babb4a18-d1d6-467e-af1c-fb852400f591}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\pluginterfaces\gui">
+      <UniqueIdentifier>{a0598a21-18c6-4da8-98a8-bebbf0f37b34}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\public.sdk">
+      <UniqueIdentifier>{bc78847c-a41c-4ad7-8a8e-2ea825bc2f8e}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\public.sdk\common">
+      <UniqueIdentifier>{23863805-5085-4669-8675-167aba1f0fc9}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\public.sdk\vst">
+      <UniqueIdentifier>{00ff2592-e5ef-4ab1-8b06-c42242d80c52}</UniqueIdentifier>
+    </Transcriber>
+    <Transcriber Include="vst3\VST3SDK\public.sdk\main">
+      <UniqueIdentifier>{ec7b025c-4ef1-4403-956b-b3673b4715b8}</UniqueIdentifier>
+    </Transcriber>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Transcriber.rc" />
+  </ItemGroup>
+</Project>
