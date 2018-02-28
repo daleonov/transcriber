@@ -5,7 +5,7 @@
 #include "lib_filter/filter.h"
 
 #define CONVERT_SAMPLE_RATE(f) (f)
-#define kNumPrograms 2
+#define kNumPrograms 1
 
 enum EParams
 {
@@ -46,8 +46,10 @@ public:
   void ProcessDoubleReplacing(double** inputs, double** outputs, int nFrames);
 
 private:
-  double mCutOffFrequency; // in Khz
+  double mCutOffFrequency; // 1.000 = 20ish kHz, 0.001 = all the way off
   double mSampleRate; // in Khz
+  double mGain; // in times
+  bool mOnOff;
   void CreatePresets();
   Filter* pmFilter;
 };

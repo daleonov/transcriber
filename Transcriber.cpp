@@ -8,11 +8,13 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   :	IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mCutOffFrequency(1.)
 {
   TRACE;
-
+  mOnOff = true;
+  mGain = 1.;
+  double mCutOffFrequency = 1.;
   //arguments are: name, defaultVal, minVal, maxVal, step, label
-  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.001, "CutOffFrequency");
+  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.005, "CutOffFrequency");
   GetParam(kCutOffFrequency)->SetShape(1);
-  GetParam(kGain)->InitDouble("Gain", 1., 0., 2., 0.1, "Gain");
+  GetParam(kGain)->InitDouble("Gain", mGain, 0., 2., 0.1, "Gain");
   GetParam(kGain)->SetShape(1);
   GetParam(kSwitch)->InitBool("OnOff", 1, "OnOff");
 
@@ -51,7 +53,6 @@ void Transcriber::setCutOffFrequency(double frequency) {
 void Transcriber::ProcessDoubleReplacing(double** inputs, double** outputs, int nFrames)
 {
   // Mutex is already locked for us.
-
   double *leftOutput = outputs[0];
   double *rightOutput = outputs[1];
 
@@ -60,11 +61,24 @@ void Transcriber::ProcessDoubleReplacing(double** inputs, double** outputs, int 
 
   double fCurrentSample;
 
-  for (int i = 0; i < nFrames; ++i) {
-
-    fCurrentSample = leftInput[i] - rightInput[i];
-    leftOutput[i] = rightOutput[i] = pmFilter->process(fCurrentSample);
-
+  // On/off switch is off - change nothing
+  // @todo Is there a cleaner way for bypassing a plugin?
+  if (!mOnOff) {
+    for (int i = 0; i < nFrames; ++i) {
+      leftOutput[i] = leftInput[i];
+      rightOutput[i] = rightInput[i];
+    }
+    return;
+  }
+  else {
+    for (int i = 0; i < nFrames; ++i) {
+      // Side channel
+      fCurrentSample = leftInput[i] - rightInput[i];
+      // Apply gain
+      fCurrentSample *= mGain;
+      // Output
+      leftOutput[i] = rightOutput[i] = pmFilter->process(fCurrentSample);
+    }
   }
 }
 
@@ -77,8 +91,7 @@ void Transcriber::Reset()
   TRACE;
   IMutexLock lock(this);
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
-  //delete pmFilter;
-  //pmFilter = new Filter(LPF, 51, mSampleRate, 2.0);
+  // @todo Tie the filter to sample rate properly
 }
 
 void Transcriber::OnParamChange(int paramIdx)
@@ -89,6 +102,14 @@ void Transcriber::OnParamChange(int paramIdx)
   {
     case kCutOffFrequency:
       pmFilter->setCutoff(GetParam(kCutOffFrequency)->Value());
+      break;
+
+    case kSwitch:
+      mOnOff = GetParam(kSwitch)->Value();
+      break;
+
+    case kGain:
+      mGain = GetParam(kGain)->Value();
       break;
 
     default:
