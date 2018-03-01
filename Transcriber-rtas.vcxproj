@@ -199,6 +199,12 @@ copy /Y "$(TargetPath)".rsr "$(RTAS_PLUGINS_PATH)\$(BINARY_NAME).dpm.rsr"
       <Outputs>$(TargetPath).rsr</Outputs>
       <Message>Copying dummy rsr</Message>
     </CustomBuildStep>
+    <PreBuildEvent>
+      <Command>git_version.bat</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Creates/updates the header with current git revision and date</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
     <Midl>
@@ -304,6 +310,7 @@ copy /Y "$(TargetPath)".rsr "$(RTAS_PLUGINS_PATH)\$(BINARY_NAME).dpm.rsr"
     <ClInclude Include="..\..\WDL\IPlug\RTAS\IPlugProcessRTAS.h" />
     <ClInclude Include="..\..\WDL\IPlug\RTAS\ProcessInterface.h" />
     <ClInclude Include="..\..\WDL\IPlug\RTAS\digicode.h" />
+    <ClInclude Include="lib_version\PLUG_Version.h" />
     <ClInclude Include="Transcriber.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

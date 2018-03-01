@@ -30,6 +30,12 @@ enum ELayout
 
   kSwitchX = 16,
   kSwitchY = 150,
+
+  kTextVersion_X = 8,
+  kTextVersion_Y = 418,
+  kTextVersion_W = 100,
+  kTextVersion_H = 20,
+  kTextVersion_ColorMono = 70,
 };
 
 class Transcriber : public IPlug

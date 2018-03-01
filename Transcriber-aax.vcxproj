@@ -172,6 +172,8 @@ CALL ..\..\AAX_SDK\Utilities\CreatePackage.bat $(OutDir) ..\..\AAX_SDK\Utilities
     <PreBuildEvent>
       <Command>DEL /Q /F /S .\build-win\aax\bin\$(BINARY_NAME).aaxplugin\Contents\Win32\
 CALL ..\..\AAX_SDK\Utilities\CreatePackage.bat $(OutDir) ..\..\AAX_SDK\Utilities\PlugIn.ico
+git_version.bat
+
 </Command>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -334,6 +336,7 @@ CALL ..\..\AAX_SDK\Utilities\CreatePackage.bat $(OutDir) ..\..\AAX_SDK\Utilities
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
       <Command>DEL /Q /F /S .\build-win\aax\bin\$(BINARY_NAME).aaxplugin\Contents\x64\
+git_version.bat
       </Command>
     </PreBuildEvent>
     <CustomBuildStep>
@@ -515,6 +518,7 @@ CALL ..\..\AAX_SDK\Utilities\CreatePackage.bat $(OutDir) ..\..\AAX_SDK\Utilities
     <ClInclude Include="..\..\WDL\IPlug\AAX\AAX_CIPlugParameters.h" />
     <ClInclude Include="..\..\WDL\IPlug\IPlugAAX.h" />
     <ClInclude Include="lib_filter\Filter.h" />
+    <ClInclude Include="lib_version\PLUG_Version.h" />
     <ClInclude Include="Transcriber.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

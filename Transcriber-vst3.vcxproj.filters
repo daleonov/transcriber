@@ -143,6 +143,7 @@
       <Transcriber>vst3</Transcriber>
     </ClInclude>
     <ClInclude Include="lib_filter\Filter.h" />
+    <ClInclude Include="lib_version\PLUG_Version.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Transcriber.rc" />

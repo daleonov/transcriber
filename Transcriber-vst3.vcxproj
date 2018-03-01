@@ -218,6 +218,12 @@ if exist "%programfiles(x86)%" (copy /y "$(TargetPath)" "$(VST3_64_PATH)\Transcr
 copy /y "$(TargetPath)" "$(VST3_32_PATH)\Transcriber.vst3"</Command>
       <Message>Copy VST3 Binary to VST3 Plugins folder</Message>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>git_version.bat</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Creates/updates the header with current git revision and date</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -244,6 +250,12 @@ copy /y "$(TargetPath)" "$(VST3_32_PATH)\Transcriber.vst3"</Command>
 if exist "%programfiles(x86)%" (copy /y "$(TargetPath)" "$(VST3_64_PATH)\Transcriber.vst3") else (echo Not copying 64bit binary - 32bit OS detected)</Command>
       <Message>Copy VST3 Binary to VST3 Plugins folder</Message>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>git_version.bat</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Creates/updates the header with current git revision and date</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
     <ClCompile>
@@ -329,6 +341,7 @@ if exist "%programfiles(x86)%" (copy /y "$(TargetPath)" "$(VST3_64_PATH)\Transcr
     <ClInclude Include="..\..\VST3_SDK\public.sdk\source\vst\vstsinglecomponenteffect.h" />
     <ClInclude Include="..\..\WDL\IPlug\IPlugVST3.h" />
     <ClInclude Include="lib_filter\Filter.h" />
+    <ClInclude Include="lib_version\PLUG_Version.h" />
     <ClInclude Include="Transcriber.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

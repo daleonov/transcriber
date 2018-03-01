@@ -3,6 +3,7 @@
 #include "IControl.h"
 #include "resource.h"
 #include "lib_filter/filter.h"
+#include "PLUG_Version.h"
 
 Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   :	IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mCutOffFrequency(1.)
@@ -25,7 +26,17 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   pGraphics->AttachControl(new IKnobMultiControl(this, kGainX, kGainY, kGain, &tGuiBmp));
   tGuiBmp = pGraphics->LoadIBitmap(SWITCH_ID, SWITCH_FN, kSwitchFrames);
   pGraphics->AttachControl(new ISwitchControl(this, kSwitchX, kSwitchY, kSwitchFrames, &tGuiBmp));
+
+  //Attach ITextControl
+  IText tTextVersion = IText(14);
+  char sDisplayedVersion[32];
+  sprintf(sDisplayedVersion, "Ver. %s (%s)", &sPlugVersionGitHead, &sPlugVersionDate);
+  tTextVersion.mColor = IColor(255, kTextVersion_ColorMono, kTextVersion_ColorMono, kTextVersion_ColorMono);
+  tTextVersion.mSize = 10;
+  pGraphics->AttachControl(new ITextControl(this, IRECT(kTextVersion_X, kTextVersion_Y, (kTextVersion_X + kTextVersion_W), (kTextVersion_Y + kTextVersion_H)), &tTextVersion, (const char*)&sDisplayedVersion));
   AttachGraphics(pGraphics);
+
+
 
 
   //MakePreset("preset 1", ... );
