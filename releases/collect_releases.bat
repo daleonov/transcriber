@@ -17,11 +17,11 @@ SET win32_label=_32
 SET x64_label=_64
 SET VST3_label=_VST3
 SET VST2_label=_VST2
-SET AAX_label=_AAX
 SET PC_label=_WIN
 SET VST3_ext=.vst3
 SET VST2_ext=.dll
 SET AAX_ext=.aaxplugin
+SET AAX_dirname=%dirname%\%plugname%%PC_label%%AAX_ext%
 ::VST3
 COPY "..\build-win\vst3\Win32\bin\%plugname%%win32_label%%VST3_ext%" "%dirname%\%plugname%%PC_label%%win32_label%%VST3_label%%VST3_ext%"
 COPY "..\build-win\vst3\x64\bin\%plugname%%win64_label%%VST3_ext%" "%dirname%\%plugname%%PC_label%%x64_label%%VST3_label%%VST3_ext%"
@@ -29,5 +29,5 @@ COPY "..\build-win\vst3\x64\bin\%plugname%%win64_label%%VST3_ext%" "%dirname%\%p
 COPY "..\build-win\vst2\Win32\bin\%plugname%%win32_label%%VST2_ext%" "%dirname%\%plugname%%PC_label%%win32_label%%VST2_label%%VST2_ext%"
 COPY "..\build-win\vst2\x64\bin\%plugname%%win64_label%%VST2_ext%" "%dirname%\%plugname%%PC_label%%x64_label%%VST2_label%%VST2_ext%"
 ::AAX
-COPY "..\build-win\aax\bin\Transcriber.aaxplugin\Contents\x64\%plugname%%AAX_ext%" "%dirname%\%plugname%%PC_label%%x64_label%%AAX_label%%AAX_ext%"
-COPY "..\build-win\aax\bin\Transcriber.aaxplugin\Contents\Win32\%plugname%%AAX_ext%" "%dirname%\%plugname%%PC_label%%win32_label%%AAX_label%%AAX_ext%"
+mkdir "%AAX_dirname%"
+XCOPY "..\build-win\aax\bin\%plugname%%AAX_ext%" "%AAX_dirname%" /E

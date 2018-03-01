@@ -110,11 +110,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetExt>.aaxplugin</TargetExt>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <TargetName>$(BINARY_NAME)_32</TargetName>
+    <TargetName>$(BINARY_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <TargetName>$(BINARY_NAME)_64</TargetName>
+    <TargetName>$(BINARY_NAME)</TargetName>
     <TargetExt>.aaxplugin</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
