@@ -10,13 +10,14 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
 {
   TRACE;
   mOnOff = true;
-  mGain = 1.;
+  mGain = LOG_TO_LINEAR(GAIN_KNOB_DFT);
+
   double mCutOffFrequency = 1.;
   //arguments are: name, defaultVal, minVal, maxVal, step, label
   GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.005, "CutOffFrequency");
   GetParam(kCutOffFrequency)->SetShape(1);
-  GetParam(kGain)->InitDouble("Gain", mGain, 0., 2., 0.1, "Gain");
-  GetParam(kGain)->SetShape(1);
+  GetParam(kGain)->InitDouble("Gain", GAIN_KNOB_DFT, GAIN_KNOB_MIN, GAIN_KNOB_MAX, GAIN_KNOB_STEP, "dB");
+  GetParam(kGain)->SetShape(GAIN_KNOB_SHAPE);
   GetParam(kSwitch)->InitBool("OnOff", 1, "OnOff");
 
   IGraphics* pGraphics = MakeGraphics(this, kWidth, kHeight);
@@ -120,7 +121,7 @@ void Transcriber::OnParamChange(int paramIdx)
       break;
 
     case kGain:
-      mGain = GetParam(kGain)->Value();
+      mGain = LOG_TO_LINEAR(GetParam(kGain)->Value());
       break;
 
     default:

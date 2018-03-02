@@ -5,6 +5,15 @@
 #include "lib_filter/filter.h"
 
 #define CONVERT_SAMPLE_RATE(f) (f)
+#define LOG_TO_LINEAR(v) pow(10, v/20.)
+// Gain knob values (dB). The shape's value should be so that the default value is at 12ish o'clock
+#define GAIN_KNOB_SHAPE 0.26
+#define GAIN_KNOB_MIN -60.
+#define GAIN_KNOB_DFT 0.
+#define GAIN_KNOB_MAX 12.
+#define GAIN_KNOB_STEP .1
+
+// Number of presets
 #define kNumPrograms 1
 
 enum EParams
