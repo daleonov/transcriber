@@ -12,10 +12,9 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   mOnOff = true;
   mGain = LOG_TO_LINEAR(GAIN_KNOB_DFT);
 
-  double mCutOffFrequency = 1.;
   //arguments are: name, defaultVal, minVal, maxVal, step, label
-  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", .99, 0.01, .99, 0.005, "CutOffFrequency");
-  GetParam(kCutOffFrequency)->SetShape(1);
+  GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", FILTER_KNOB_DFT, FILTER_KNOB_MIN, FILTER_KNOB_MAX, FILTER_KNOB_STEP, "%");
+  GetParam(kCutOffFrequency)->SetShape(FILTER_KNOB_SHAPE);
   GetParam(kGain)->InitDouble("Gain", GAIN_KNOB_DFT, GAIN_KNOB_MIN, GAIN_KNOB_MAX, GAIN_KNOB_STEP, "dB");
   GetParam(kGain)->SetShape(GAIN_KNOB_SHAPE);
   GetParam(kSwitch)->InitBool("OnOff", 1, "OnOff");
@@ -45,7 +44,7 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
 
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
   pmFilter = new Filter();
-  pmFilter->setCutoff(.5);
+  pmFilter->setCutoff(CONVERT_LPF_FREQUENCY(FILTER_KNOB_DFT));
   CreatePresets();
 }
 
@@ -95,7 +94,7 @@ void Transcriber::ProcessDoubleReplacing(double** inputs, double** outputs, int 
 }
 
 void Transcriber::CreatePresets() {
-  MakePreset("default", 15.0);
+  MakePreset("Default", 99., 0., true);
 }
 
 void Transcriber::Reset()
@@ -113,7 +112,7 @@ void Transcriber::OnParamChange(int paramIdx)
   switch (paramIdx)
   {
     case kCutOffFrequency:
-      pmFilter->setCutoff(GetParam(kCutOffFrequency)->Value());
+      pmFilter->setCutoff(CONVERT_LPF_FREQUENCY(GetParam(kCutOffFrequency)->Value()));
       break;
 
     case kSwitch:

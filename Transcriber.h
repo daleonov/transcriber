@@ -5,6 +5,7 @@
 #include "lib_filter/filter.h"
 
 #define CONVERT_SAMPLE_RATE(f) (f)
+#define CONVERT_LPF_FREQUENCY(f) (1/100.)
 #define LOG_TO_LINEAR(v) pow(10, v/20.)
 // Gain knob values (dB). The shape's value should be so that the default value is at 12ish o'clock
 #define GAIN_KNOB_SHAPE 0.26
@@ -12,6 +13,14 @@
 #define GAIN_KNOB_DFT 0.
 #define GAIN_KNOB_MAX 12.
 #define GAIN_KNOB_STEP .1
+
+// Filter knob values in %. At 100% f_LFP is about 20k, at 50% at 2-5k, at 1% at about 50-100Hz.
+// Not accurate, not tied to sample rate, although this application doesn't need that kind of precision. 
+#define FILTER_KNOB_SHAPE 1.
+#define FILTER_KNOB_MIN 1.
+#define FILTER_KNOB_MAX 99.
+#define FILTER_KNOB_DFT FILTER_KNOB_MAX
+#define FILTER_KNOB_STEP .5
 
 // Number of presets
 #define kNumPrograms 1
