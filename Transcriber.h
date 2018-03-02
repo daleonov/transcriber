@@ -20,7 +20,7 @@
 #define FILTER_KNOB_MIN 1.
 #define FILTER_KNOB_MAX 99.
 #define FILTER_KNOB_DFT FILTER_KNOB_MAX
-#define FILTER_KNOB_STEP .5
+#define FILTER_KNOB_STEP 1.
 
 // Number of presets
 #define kNumPrograms 1
@@ -49,11 +49,11 @@ enum ELayout
   kSwitchX = 16,
   kSwitchY = 150,
 
-  kTextVersion_X = 8,
-  kTextVersion_Y = 418,
-  kTextVersion_W = 100,
+  kTextVersion_X = 0,
+  kTextVersion_Y = 407,
+  kTextVersion_W = 64,
   kTextVersion_H = 20,
-  kTextVersion_ColorMono = 70,
+  kTextVersion_ColorMono = 65,
 };
 
 class Transcriber : public IPlug

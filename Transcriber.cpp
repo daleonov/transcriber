@@ -30,7 +30,7 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   //Attach ITextControl
   IText tTextVersion = IText(14);
   char sDisplayedVersion[32];
-  sprintf(sDisplayedVersion, "Ver. %s (%s)", &sPlugVersionGitHead, &sPlugVersionDate);
+  sprintf(sDisplayedVersion, "Ver. %s\n(%s)", &sPlugVersionGitHead, &sPlugVersionDate);
   tTextVersion.mColor = IColor(255, kTextVersion_ColorMono, kTextVersion_ColorMono, kTextVersion_ColorMono);
   tTextVersion.mSize = 10;
   pGraphics->AttachControl(new ITextControl(this, IRECT(kTextVersion_X, kTextVersion_Y, (kTextVersion_X + kTextVersion_W), (kTextVersion_Y + kTextVersion_H)), &tTextVersion, (const char*)&sDisplayedVersion));
