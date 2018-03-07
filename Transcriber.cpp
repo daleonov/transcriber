@@ -61,10 +61,6 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
 }
 
 Transcriber::~Transcriber() {
-  delete ptCutOffFrequencyControl;
-  delete ptGainControl;
-  delete ptSwitchControl;
-  delete pmFilter;
 }
 
 void Transcriber::setSampleRate(double sampleRate) {
@@ -130,6 +126,8 @@ void Transcriber::OnParamChange(int paramIdx)
 
     case kSwitch:
       mOnOff = GetParam(kSwitch)->Value();
+      ptCutOffFrequencyControl->GrayOut(!mOnOff);
+      ptGainControl->GrayOut(!mOnOff);
       break;
 
     case kGain:
