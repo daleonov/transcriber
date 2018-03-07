@@ -22,6 +22,9 @@
 #define FILTER_KNOB_DFT FILTER_KNOB_MAX
 #define FILTER_KNOB_STEP 1.
 
+#define PLUG_VERSION_STRING_LENGTH 32
+#define PLUG_VERSION_STRING_FONT_SIZE 10
+
 // Number of presets
 #define kNumPrograms 1
 
@@ -76,6 +79,10 @@ private:
   bool mOnOff;
   void CreatePresets();
   Filter* pmFilter;
+
+  IKnobMultiControl *ptCutOffFrequencyControl;
+  IKnobMultiControl *ptGainControl;
+  ISwitchControl *ptSwitchControl;
 };
 
 #endif

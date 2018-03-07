@@ -19,40 +19,53 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   GetParam(kGain)->SetShape(GAIN_KNOB_SHAPE);
   GetParam(kSwitch)->InitBool("OnOff", 1, "OnOff");
 
+  // Background
   IGraphics* pGraphics = MakeGraphics(this, kWidth, kHeight);
   pGraphics->AttachBackground(BACKGROUND_ID, BACKGROUND_FN);
+
+  // Knobs and switch
   IBitmap tGuiBmp = pGraphics->LoadIBitmap(KNOB_ID, KNOB_FN, kKnobFrames);
-  pGraphics->AttachControl(new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &tGuiBmp));
-  pGraphics->AttachControl(new IKnobMultiControl(this, kGainX, kGainY, kGain, &tGuiBmp));
+  ptCutOffFrequencyControl = new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &tGuiBmp);
+  ptGainControl = new IKnobMultiControl(this, kGainX, kGainY, kGain, &tGuiBmp);
   tGuiBmp = pGraphics->LoadIBitmap(SWITCH_ID, SWITCH_FN, kSwitchFrames);
-  pGraphics->AttachControl(new ISwitchControl(this, kSwitchX, kSwitchY, kSwitchFrames, &tGuiBmp));
+  ptSwitchControl = new ISwitchControl(this, kSwitchX, kSwitchY, kSwitchFrames, &tGuiBmp);
+  pGraphics->AttachControl(ptCutOffFrequencyControl);
+  pGraphics->AttachControl(ptGainControl);
+  pGraphics->AttachControl(ptSwitchControl);
 
-  //Attach ITextControl
-  IText tTextVersion = IText(14);
-  char sDisplayedVersion[32];
+  // Text string with current version
+  IText tTextVersion = IText(PLUG_VERSION_STRING_LENGTH);
+  IRECT tTextVersionIrect = IRECT(
+    kTextVersion_X,
+    kTextVersion_Y,
+    (kTextVersion_X + kTextVersion_W),
+    (kTextVersion_Y + kTextVersion_H)
+    );
+  const IColor tTextVersionColor(255, kTextVersion_ColorMono, kTextVersion_ColorMono, kTextVersion_ColorMono);
+  tTextVersion.mSize = PLUG_VERSION_STRING_FONT_SIZE;
+  tTextVersion.mColor = tTextVersionColor;
+  char sDisplayedVersion[PLUG_VERSION_STRING_LENGTH];
   sprintf(sDisplayedVersion, "Ver. %s\n(%s)", &sPlugVersionGitHead, &sPlugVersionDate);
-  tTextVersion.mColor = IColor(255, kTextVersion_ColorMono, kTextVersion_ColorMono, kTextVersion_ColorMono);
-  tTextVersion.mSize = 10;
-  pGraphics->AttachControl(new ITextControl(this, IRECT(kTextVersion_X, kTextVersion_Y, (kTextVersion_X + kTextVersion_W), (kTextVersion_Y + kTextVersion_H)), &tTextVersion, (const char*)&sDisplayedVersion));
+  pGraphics->AttachControl(new ITextControl(this, tTextVersionIrect, &tTextVersion, (const char*)&sDisplayedVersion));
+  
+  // Post-init stuff
   AttachGraphics(pGraphics);
-
-
-
-
-  //MakePreset("preset 1", ... );
-  //MakeDefaultPreset((char *) "-", kNumPrograms);
-
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
+
+  // Presets
+  CreatePresets();
+
+  // Low pass filter instance
   pmFilter = new Filter();
   pmFilter->setCutoff(CONVERT_LPF_FREQUENCY(FILTER_KNOB_DFT));
-  CreatePresets();
 }
 
 Transcriber::~Transcriber() {
-  //delete pmFilter;
-
+  delete ptCutOffFrequencyControl;
+  delete ptGainControl;
+  delete ptSwitchControl;
+  delete pmFilter;
 }
-
 
 void Transcriber::setSampleRate(double sampleRate) {
   mSampleRate = sampleRate;
