@@ -3,6 +3,9 @@
 #include "IControl.h"
 #include "resource.h"
 #include "lib_filter/filter.h"
+
+// If this file is not found - run git_version.bat (or .sh) script, 
+// or create an empty file if you don't use git.
 #include "PLUG_Version.h"
 
 Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
@@ -34,6 +37,7 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   pGraphics->AttachControl(ptGainControl);
   pGraphics->AttachControl(ptSwitchControl);
 
+  #ifdef _PLUG_VERSION_H
   // Text string with current version
   IText tTextVersion = IText(PLUG_VERSION_STRING_LENGTH);
   IRECT tTextVersionIrect = IRECT(
@@ -48,6 +52,7 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   char sDisplayedVersion[PLUG_VERSION_STRING_LENGTH];
   sprintf(sDisplayedVersion, "Ver. %s\n(%s)", &sPlugVersionGitHead, &sPlugVersionDate);
   pGraphics->AttachControl(new ITextControl(this, tTextVersionIrect, &tTextVersion, (const char*)&sDisplayedVersion));
+  #endif
   
   // Post-init stuff
   AttachGraphics(pGraphics);
