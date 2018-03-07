@@ -57,9 +57,11 @@ instrument determined by PLUG _IS _INST
 #define KNOB_ID 101
 #define BACKGROUND_ID 102
 #define SWITCH_ID 103
+#define KNOB_FILTER_ID 104
 
 // Image resource locations for this plug.
 #define KNOB_FN "resources/img/FlatGreyYellowKnob.png"
+#define KNOB_FILTER_FN "resources/img/FlatGreyTealKnob.png"
 #define BACKGROUND_FN "resources/img/TranscriberBG.png"
 #define SWITCH_FN "resources/img/Switch.png"
 

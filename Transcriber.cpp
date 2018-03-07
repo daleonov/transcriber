@@ -25,8 +25,9 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
 
   // Knobs and switch
   IBitmap tGuiBmp = pGraphics->LoadIBitmap(KNOB_ID, KNOB_FN, kKnobFrames);
-  ptCutOffFrequencyControl = new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &tGuiBmp);
   ptGainControl = new IKnobMultiControl(this, kGainX, kGainY, kGain, &tGuiBmp);
+  tGuiBmp = pGraphics->LoadIBitmap(KNOB_FILTER_ID, KNOB_FILTER_FN, kKnobFrames);
+  ptCutOffFrequencyControl = new IKnobMultiControl(this, kCutOffFrequencyX, kCutOffFrequencyY, kCutOffFrequency, &tGuiBmp);
   tGuiBmp = pGraphics->LoadIBitmap(SWITCH_ID, SWITCH_FN, kSwitchFrames);
   ptSwitchControl = new ISwitchControl(this, kSwitchX, kSwitchY, kSwitchFrames, &tGuiBmp);
   pGraphics->AttachControl(ptCutOffFrequencyControl);
