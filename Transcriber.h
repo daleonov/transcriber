@@ -5,7 +5,7 @@
 #include "lib_filter/filter.h"
 
 #define CONVERT_SAMPLE_RATE(f) (f)
-#define CONVERT_LPF_FREQUENCY(f) (1/100.)
+#define CONVERT_LPF_FREQUENCY(f) (f/100.)
 #define LOG_TO_LINEAR(v) pow(10, v/20.)
 // Gain knob values (dB). The shape's value should be so that the default value is at 12ish o'clock
 #define GAIN_KNOB_SHAPE 0.26
