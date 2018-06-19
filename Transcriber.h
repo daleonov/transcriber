@@ -4,6 +4,10 @@
 #include "IPlug_include_in_plug_hdr.h"
 #include "lib_filter/filter.h"
 
+// If this file is missing, run "git_version" script from project folder,
+// or create an empty file if you don't use git.
+#include "PLUG_Version.h"
+
 #define CONVERT_SAMPLE_RATE(f) (f)
 #define CONVERT_LPF_FREQUENCY(f) (f/100.)
 #define LOG_TO_LINEAR(v) pow(10, v/20.)
@@ -22,8 +26,22 @@
 #define FILTER_KNOB_DFT FILTER_KNOB_MAX
 #define FILTER_KNOB_STEP 1.
 
-#define PLUG_VERSION_STRING_LENGTH 32
-#define PLUG_VERSION_STRING_FONT_SIZE 10
+#define PLUG_VERSION_STRING_LENGTH 96
+#ifdef _WIN32
+#define PLUG_VERSION_STRING_FONT_SIZE 12
+#elif defined(__APPLE__)
+#define PLUG_VERSION_STRING_FONT_SIZE 13
+#endif
+
+#ifdef _PLUG_VERSION_H
+#define PLUG_VERSTION_TEXT \
+"Transcriber v%s by Daniel Leonov Plugs | \
+danielleonovplugs.com | build %s@%s"
+#else
+#define PLUG_VERSTION_TEXT \
+"Transcriber v%s by Daniel Leonov Plugs | \
+danielleonovplugs.com"
+#endif
 
 // Number of presets
 #define kNumPrograms 1
@@ -53,10 +71,10 @@ enum ELayout
   kSwitchY = 150,
 
   kTextVersion_X = 0,
-  kTextVersion_Y = 407,
-  kTextVersion_W = 64,
-  kTextVersion_H = 20,
-  kTextVersion_ColorMono = 65,
+  kTextVersion_Y = 5,
+  kTextVersion_W = GUI_WIDTH,
+  kTextVersion_H = 30,
+  kTextVersion_ColorMono = 91,
 };
 
 class Transcriber : public IPlug

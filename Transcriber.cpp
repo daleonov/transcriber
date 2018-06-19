@@ -4,16 +4,13 @@
 #include "resource.h"
 #include "lib_filter/filter.h"
 
-// If this file is not found - run git_version.bat (or .sh) script, 
-// or create an empty file if you don't use git.
-#include "PLUG_Version.h"
-
 Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   :	IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mCutOffFrequency(1.)
 {
   TRACE;
   mOnOff = true;
   mGain = LOG_TO_LINEAR(GAIN_KNOB_DFT);
+  char sDisplayedVersion[PLUG_VERSION_STRING_LENGTH];
 
   //arguments are: name, defaultVal, minVal, maxVal, step, label
   GetParam(kCutOffFrequency)->InitDouble("CutOffFrequency", FILTER_KNOB_DFT, FILTER_KNOB_MIN, FILTER_KNOB_MAX, FILTER_KNOB_STEP, "%");
@@ -37,8 +34,24 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   pGraphics->AttachControl(ptGainControl);
   pGraphics->AttachControl(ptSwitchControl);
 
-  #ifdef _PLUG_VERSION_H
+
   // Text string with current version
+  #ifdef _PLUG_VERSION_H
+  sprintf(
+    sDisplayedVersion,
+    PLUG_VERSTION_TEXT,
+    VST3_VER_STR,
+    &sPlugVersionGitHead,
+    &sPlugVersionDate
+    );
+  #else
+  sprintf(
+    sDisplayedVersion,
+    PLUG_VERSTION_TEXT,
+    VST3_VER_STR
+    );
+  #endif
+
   IText tTextVersion = IText(PLUG_VERSION_STRING_LENGTH);
   IRECT tTextVersionIrect = IRECT(
     kTextVersion_X,
@@ -49,10 +62,8 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   const IColor tTextVersionColor(255, kTextVersion_ColorMono, kTextVersion_ColorMono, kTextVersion_ColorMono);
   tTextVersion.mSize = PLUG_VERSION_STRING_FONT_SIZE;
   tTextVersion.mColor = tTextVersionColor;
-  char sDisplayedVersion[PLUG_VERSION_STRING_LENGTH];
-  sprintf(sDisplayedVersion, "Ver. %s\n(%s)", &sPlugVersionGitHead, &sPlugVersionDate);
+  tTextVersion.mAlign = tTextVersion.kAlignCenter;
   pGraphics->AttachControl(new ITextControl(this, tTextVersionIrect, &tTextVersion, (const char*)&sDisplayedVersion));
-  #endif
   
   // Post-init stuff
   AttachGraphics(pGraphics);
