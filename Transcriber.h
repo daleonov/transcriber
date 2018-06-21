@@ -33,6 +33,7 @@
 #define PLUG_VERSION_STRING_FONT_SIZE 13
 #endif
 
+// Plug's info label
 #ifdef _PLUG_VERSION_H
 #define PLUG_VERSTION_TEXT \
 "Transcriber v%s by Daniel Leonov Plugs | \
@@ -42,6 +43,9 @@ danielleonovplugs.com | build %s@%s"
 "Transcriber v%s by Daniel Leonov Plugs | \
 danielleonovplugs.com"
 #endif
+
+// Clickable area in the plug's info label will lead to this website
+#define PLUG_WEBSITE_LINK "https://danielleonovplugs.com"
 
 // Number of presets
 #define kNumPrograms 1
@@ -77,6 +81,14 @@ enum ELayout
   kTextVersion_ColorMono = 91,
 };
 
+// This IRect only covers an area of the label that contains a link to plugin's website
+const IRECT tWebsiteLinkIRect(
+  kTextVersion_X + 322,
+  kTextVersion_Y,
+  kTextVersion_X + 322+120,
+  kTextVersion_Y + 14
+  );
+
 class Transcriber : public IPlug
 {
 public:
@@ -101,6 +113,7 @@ private:
   IKnobMultiControl *ptCutOffFrequencyControl;
   IKnobMultiControl *ptGainControl;
   ISwitchControl *ptSwitchControl;
+  IURLControl *tWebsiteLink;
 };
 
 #endif

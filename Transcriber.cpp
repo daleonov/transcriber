@@ -64,7 +64,11 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   tTextVersion.mColor = tTextVersionColor;
   tTextVersion.mAlign = tTextVersion.kAlignCenter;
   pGraphics->AttachControl(new ITextControl(this, tTextVersionIrect, &tTextVersion, (const char*)&sDisplayedVersion));
-  
+
+  // Clickable area leading to a website
+  tWebsiteLink = new IURLControl(this, tWebsiteLinkIRect, PLUG_WEBSITE_LINK);
+  pGraphics->AttachControl(tWebsiteLink);
+
   // Post-init stuff
   AttachGraphics(pGraphics);
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
