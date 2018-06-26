@@ -41,8 +41,8 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
     sDisplayedVersion,
     PLUG_VERSTION_TEXT,
     VST3_VER_STR,
-    &sPlugVersionGitHead,
-    &sPlugVersionDate
+    (char*)sPlugVersionGitHead,
+    (char*)sPlugVersionDate
     );
   #else
   sprintf(
