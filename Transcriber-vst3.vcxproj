@@ -130,12 +130,14 @@
     <TargetExt>.vst3</TargetExt>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
     <TargetName>$(BINARY_NAME)_32</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\Common\DLPG</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>build-win\vst3\$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.vst3</TargetExt>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
     <TargetName>$(BINARY_NAME)_64</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\Common\DLPG</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
     <OutDir>build-win\vst3\$(Platform)\bin\</OutDir>

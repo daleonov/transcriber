@@ -111,11 +111,13 @@
     <TargetExt>.aaxplugin</TargetExt>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
     <TargetName>$(BINARY_NAME)</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\Common\DLPG</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
     <TargetName>$(BINARY_NAME)</TargetName>
     <TargetExt>.aaxplugin</TargetExt>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)..\Common\DLPG</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>

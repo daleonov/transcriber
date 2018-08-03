@@ -126,10 +126,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(BINARY_NAME)_32</TargetName>
+    <IncludePath>$(ProjectDir)..\Common\DLPG;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>build-win\vst2\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(BINARY_NAME)_64</TargetName>
+    <IncludePath>$(ProjectDir)..\Common\DLPG;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tracer|Win32'">
     <OutDir>build-win\vst2\$(Platform)\bin\</OutDir>
