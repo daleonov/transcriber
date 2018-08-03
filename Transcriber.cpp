@@ -3,6 +3,7 @@
 #include "IControl.h"
 #include "resource.h"
 #include "lib_filter/filter.h"
+#include "DLPG_FeedbackSender.h"
 
 Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   :	IPLUG_CTOR(kNumParams, kNumPrograms, instanceInfo), mCutOffFrequency(1.)
@@ -33,7 +34,6 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   pGraphics->AttachControl(ptCutOffFrequencyControl);
   pGraphics->AttachControl(ptGainControl);
   pGraphics->AttachControl(ptSwitchControl);
-
 
   // Text string with current version
   #ifdef _PLUG_VERSION_H
@@ -68,6 +68,25 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   // Clickable area leading to a website
   tWebsiteLink = new IURLControl(this, tWebsiteLinkIRect, PLUG_WEBSITE_LINK);
   pGraphics->AttachControl(tWebsiteLink);
+
+  // Bugreport link
+  static IText tBugreportLabel = IText(DLPG_BUGREPORT_LABEL_STRING_SIZE);
+  tBugreportLabel.mColor = tBugreportLabelColor;
+  tBugreportLabel.mSize = DLPG_BUGREPORT_LABEL_FONT_SIZE;
+  tBugreportLabel.mAlign = tBugreportLabel.kAlignNear;
+  pGraphics->AttachControl(
+    new ITextControl(
+      this,
+      tBugreportLabelIrect,
+      &tBugreportLabel,
+      DLPG_BUGREPORT_LABEL_TEXT
+      )
+    );
+
+  // Clickable area for bugreports
+  MakeFeedbackUrl(sFeedbackUrl);
+  tFeedbackLink = new IURLControl(this, tFeedbackLinkIRect, sFeedbackUrl);
+  pGraphics->AttachControl(tFeedbackLink);
 
   // Post-init stuff
   AttachGraphics(pGraphics);
@@ -133,6 +152,11 @@ void Transcriber::Reset()
   IMutexLock lock(this);
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
   // @todo Tie the filter to sample rate properly
+
+  // Update sample rate in feedback link
+  MakeFeedbackUrl(sFeedbackUrl);
+  tFeedbackLink = new IURLControl(this, tFeedbackLinkIRect, sFeedbackUrl);
+  GetGUI()->AttachControl(tFeedbackLink);
 }
 
 void Transcriber::OnParamChange(int paramIdx)

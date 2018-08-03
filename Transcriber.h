@@ -29,8 +29,10 @@
 #define PLUG_VERSION_STRING_LENGTH 96
 #ifdef _WIN32
 #define PLUG_VERSION_STRING_FONT_SIZE 12
+#define DLPG_BUGREPORT_LABEL_FONT_SIZE 12
 #elif defined(__APPLE__)
 #define PLUG_VERSION_STRING_FONT_SIZE 13
+#define DLPG_BUGREPORT_LABEL_FONT_SIZE 13
 #endif
 
 // Plug's info label
@@ -79,6 +81,9 @@ enum ELayout
   kTextVersion_W = GUI_WIDTH,
   kTextVersion_H = 30,
   kTextVersion_ColorMono = 91,
+
+  kBugreporLabelX = 20,
+  kBugreporLabelY = kHeight - 15,
 };
 
 // This IRect only covers an area of the label that contains a link to plugin's website
@@ -87,6 +92,32 @@ const IRECT tWebsiteLinkIRect(
   kTextVersion_Y,
   kTextVersion_X + 322+120,
   kTextVersion_Y + 14
+  );
+
+// Bugreport link
+#define DLPG_FEEDBACK_URL_LENGTH 256
+#define DLPG_BUGREPORT_LABEL_STRING_SIZE 16
+#define DLPG_BUGREPORT_LABEL_COLOR_MONO 65
+#define DLPG_BUGREPORT_LABEL_W 67
+#define DLPG_BUGREPORT_LABEL_H 16
+#define DLPG_BUGREPORT_LABEL_TEXT "Report a bug"
+const IColor tBugreportLabelColor(
+  255,
+  DLPG_BUGREPORT_LABEL_COLOR_MONO,
+  DLPG_BUGREPORT_LABEL_COLOR_MONO,
+  DLPG_BUGREPORT_LABEL_COLOR_MONO
+  );
+const IRECT tBugreportLabelIrect(
+  kBugreporLabelX,
+  kBugreporLabelY,
+  kBugreporLabelX + DLPG_BUGREPORT_LABEL_W,
+  kBugreporLabelY + DLPG_BUGREPORT_LABEL_H
+  );
+const IRECT tFeedbackLinkIRect(
+  15,
+  tBugreportLabelIrect.T - 2,
+  tBugreportLabelIrect.R,
+  GUI_HEIGHT - 3
   );
 
 class Transcriber : public IPlug
@@ -114,6 +145,11 @@ private:
   IKnobMultiControl *ptGainControl;
   ISwitchControl *ptSwitchControl;
   IURLControl *tWebsiteLink;
+
+  // Feedback URL generator
+  void MakeFeedbackUrl(char* sDest);
+  char sFeedbackUrl[DLPG_FEEDBACK_URL_LENGTH];
+  IURLControl *tFeedbackLink;
 };
 
 #endif
