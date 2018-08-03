@@ -35,7 +35,6 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
   pGraphics->AttachControl(ptGainControl);
   pGraphics->AttachControl(ptSwitchControl);
 
-
   // Text string with current version
   #ifdef _PLUG_VERSION_H
   sprintf(
@@ -83,6 +82,7 @@ Transcriber::Transcriber(IPlugInstanceInfo instanceInfo)
       DLPG_BUGREPORT_LABEL_TEXT
       )
     );
+
   // Clickable area for bugreports
   MakeFeedbackUrl(sFeedbackUrl);
   tFeedbackLink = new IURLControl(this, tFeedbackLinkIRect, sFeedbackUrl);
@@ -152,6 +152,11 @@ void Transcriber::Reset()
   IMutexLock lock(this);
   setSampleRate(CONVERT_SAMPLE_RATE(GetSampleRate()));
   // @todo Tie the filter to sample rate properly
+
+  // Update sample rate in feedback link
+  MakeFeedbackUrl(sFeedbackUrl);
+  tFeedbackLink = new IURLControl(this, tFeedbackLinkIRect, sFeedbackUrl);
+  GetGUI()->AttachControl(tFeedbackLink);
 }
 
 void Transcriber::OnParamChange(int paramIdx)
