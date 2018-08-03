@@ -1,9 +1,9 @@
-#define PLUG_MFR "DanielLeonov"
+#define PLUG_MFR "DanielLeonovPlugs"
 #define PLUG_NAME "Transcriber"
 
 #define PLUG_CLASS_NAME Transcriber
 
-#define BUNDLE_MFR "DanielLeonov"
+#define BUNDLE_MFR "DanielLeonovPlugs"
 #define BUNDLE_NAME "Transcriber"
 
 #define PLUG_ENTRY Transcriber_Entry
@@ -21,9 +21,9 @@
 
 // http://service.steinberg.de/databases/plugin.nsf/plugIn?openForm
 // 4 chars, single quotes. At least one capital letter
-#define PLUG_UNIQUE_ID 'Ipef'
+#define PLUG_UNIQUE_ID 'TRBR'
 // make sure this is not the same as BUNDLE_MFR
-#define PLUG_MFR_ID 'Acme'
+#define PLUG_MFR_ID 'DLPG'
 
 // ProTools stuff
 
@@ -33,8 +33,8 @@
   const int PLUG_TYPE_IDS_AS[2] = {'EFA1', 'EFA2'}; // AudioSuite
 #endif
 
-#define PLUG_MFR_PT "DanielLeonov\nDanielLeonov\nAcme"
-#define PLUG_NAME_PT "Transcriber\nIPEF"
+#define PLUG_MFR_PT "DanielLeonovPlugs\nDanielLeonovPlugs\nDLPG"
+#define PLUG_NAME_PT "Transcriber\nTrbr"
 #define PLUG_TYPE_PT "Effect"
 #define PLUG_DOES_AUDIOSUITE 1
 
@@ -75,8 +75,8 @@ instrument determined by PLUG _IS _INST
 #endif
 
 // vst3 stuff
-#define MFR_URL "www.olilarkin.co.uk"
-#define MFR_EMAIL "spam@me.com"
+#define MFR_URL "www.danielleonovplugs.com"
+#define MFR_EMAIL "contact@danielleonovplugs.com"
 #define EFFECT_TYPE_VST3 "Fx"
 
 /* "Fx|Analyzer"", "Fx|Delay", "Fx|Distortion", "Fx|Dynamics", "Fx|EQ", "Fx|Transcriber",

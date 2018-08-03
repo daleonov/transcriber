@@ -32,7 +32,7 @@ def main():
   FullVersionStr = MajorStr + "." + MinorStr + "." + BugfixStr
   
   today = datetime.date.today()
-  CFBundleGetInfoString = FullVersionStr + ", Copyright DanielLeonov, " + str(today.year)
+  CFBundleGetInfoString = FullVersionStr + ", Copyright DanielLeonovPlugs, " + str(today.year)
   CFBundleVersion = FullVersionStr
   
   print "update_version.py - setting version to " + FullVersionStr
