@@ -774,7 +774,7 @@
 			YES,
 		);
 		argumentStrings = (
-			"-v aufx Ipef Acme",
+			"-v aufx TRBR DLPG",
 		);
 		autoAttachOnCrash = 1;
 		breakpointsEnabled = 1;

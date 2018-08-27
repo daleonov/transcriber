@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='US-ASCII' standalone='yes'?>
 <PageTables vers='6.4.0.91'>
 	<PageTableLayouts>
-		<Plugin manID='Acme' prodID='Ipef' plugID='Ipef'>
-			<Desc>Transcriber by DanielLeonov.</Desc>
+		<Plugin manID='DLPG' prodID='TRBR' plugID='TRBR'>
+			<Desc>Transcriber by DanielLeonovPlugs.</Desc>
 			<Layout>PageTable 1</Layout>
-		</Plugin><!--manID='Acme' prodID='Ipef' plugID='Ipef'-->
+		</Plugin><!--manID='DLPG' prodID='TRBR' plugID='TRBR'-->
 		<PTLayout name='PageTable 1'>
 			<PageTable type='BkCS' pgsz='12'>
 				<Page num='1'>
@@ -131,9 +131,9 @@
 			<TDM>
 			</TDM>
 			<RTAS>
-				<PluginID manID='Acme' prodID='Ipef' plugID='Ipef'>
+				<PluginID manID='DLPG' prodID='TRBR' plugID='TRBR'>
 					<MenuStr>RTAS: Transcriber</MenuStr>
-				</PluginID><!--manID='Acme' prodID='Ipef' plugID='Ipef'-->
+				</PluginID><!--manID='DLPG' prodID='TRBR' plugID='TRBR'-->
 			</RTAS>
 		</PluginList>
 		<DiscCtrls>
